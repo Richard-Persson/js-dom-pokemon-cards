@@ -33,7 +33,6 @@ pokemonImage.setAttribute("src",data[i].sprites.front_default)
     
 pokemonName.textContent = data[i].name
 
-    
 HP.innerHTML = "ATTACK:  " + data[i].stats[0].base_stat
 ATTACK.innerHTML = "ATTACK:  " + data[i].stats[1].base_stat
 SPECIAL_ATTACK.innerHTML = "SPECIAL-ATTACK:  " + data[i].stats[2].base_stat
@@ -48,6 +47,16 @@ stats.append(SPECIAL_ATTACK)
 stats.append(SPECIAL_DEFENSE)
 stats.append(SPEED)
 listObject.append(stats)
+    
+listObject.addEventListener("click",()=>{
+
+    if(pokemonImage.src===data[i].sprites.front_default){
+        pokemonImage.setAttribute("src",data[i].sprites.back_default)
+        return
+    }
+    if(pokemonImage.src===data[i].sprites.back_default)
+        pokemonImage.setAttribute("src",data[i].sprites.front_default)
+})
 
 pokemon.append(listObject)
 }
